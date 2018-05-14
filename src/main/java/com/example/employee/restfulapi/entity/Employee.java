@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "Employee")
 public class Employee {
     @Id
     @GeneratedValue
@@ -13,7 +14,10 @@ public class Employee {
     private Integer age;
     private String gender;
     private Integer salary;
-    private Long companyId;
+    //    private Long companyId;
+    @ManyToOne
+    @JoinColumn(name = "companyId")
+    private Company company;
 
     public Employee() {
     }
@@ -23,16 +27,16 @@ public class Employee {
         this.age = age;
         this.gender = gender;
         this.salary = salary;
-        this.companyId = companyId;
+//        this.companyId = companyId;
     }
 
-    public Long getCompanyId() {
-        return companyId;
-    }
+//    public Long getCompanyId() {
+//        return companyId;
+//    }
 
-    public void setCompanyId(Long companyId) {
-        this.companyId = companyId;
-    }
+//    public void setCompanyId(Long companyId) {
+//        this.companyId = companyId;
+//    }
 
     public Integer getSalary() {
         return salary;
@@ -40,10 +44,6 @@ public class Employee {
 
     public void setSalary(Integer salary) {
         this.salary = salary;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getName() {

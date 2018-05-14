@@ -2,10 +2,13 @@ package com.example.employee.restfulapi.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = "Company")
 public class Company {
     @Id
     @GeneratedValue
@@ -13,7 +16,18 @@ public class Company {
     private String companyName;
     private Integer employeesNumber;
 
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "company")
+    private List<Employee> employees = new ArrayList<>();
+
     public Company() {
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
     public Company(String companyName, Integer employeesNumber) {
