@@ -45,3 +45,5 @@ DELETE    /employees/1  #删除某个employee
 ## 输出规范
 - RESTful API的实现
 - 包含API测试结果截图的result文件夹
+
+[![Build Status](https://www.travis-ci.org/MarkRuanLR/RESTful_TW.svg?branch=master)](https://www.travis-ci.org/MarkRuanLR/RESTful_TW)
